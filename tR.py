@@ -112,7 +112,7 @@ class textR(object):
             for i in range(sentences_size):
                 sent_matrix[i, :] = sent_score[i] * outNum[i]  # 每个句子的 出链分值
             for i in range(sentences_size):
-                sent_score[i] = sum(sent_matrix[:, i])  # 计算每个句子的得分
+                wscore[w] = (1-self.d)+self.d*sum(w_matrix[:,w_id[w]]) # 计算每个句子的得分
             newS = [sent_score[i] for i in range(sentences_size)]
 
             equal = [0 if abs(k - v) < 1e-6 else 1 for k, v in zip(oldS, newS)]  # 收敛精度 1e-6
